@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - DataCart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-2xl border border-slate-200 max-w-sm w-full space-y-4 shadow-sm">
+        <h1 class="text-2xl font-bold text-center text-indigo-600">📊 DataCart</h1>
+        <p class="text-xs text-slate-500 text-center">Sign in to your customer or admin account</p>
+
+        <div class="p-3 bg-indigo-50 border border-indigo-100 rounded-lg text-xs space-y-1">
+            <span class="font-bold text-indigo-900">Default Credentials:</span>
+            <div>Admin: <code class="text-indigo-700">admin@datacart.com</code> / <code class="text-indigo-700">admin123</code></div>
+            <div>Customer (Kasi): <code class="text-slate-700">kasi@example.com</code> / <code class="text-slate-700">password123</code></div>
+        </div>
+
+        <form action="/login" method="POST" class="space-y-3 text-xs">
+            <div>
+                <label class="block font-semibold mb-1">Email</label>
+                <input type="email" name="email" value="admin@datacart.com" required class="w-full px-3 py-2 border rounded-lg">
+            </div>
+            <div>
+                <label class="block font-semibold mb-1">Password</label>
+                <input type="password" name="password" value="admin123" required class="w-full px-3 py-2 border rounded-lg">
+            </div>
+            <button type="submit" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg text-xs">Sign In</button>
+        </form>
+
+        <div class="text-center pt-2 text-xs">
+            <a href="/" class="text-slate-400 hover:text-slate-700">Return to Home</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+Order_ID,Customer_ID,Customer_Name,Product,Category,Quantity,Price,Order_Date,Rating,Total_Amount,Status,Payment_Method
+ORD-2026-1001,u-cust-1,Kasi,Apple MacBook Air 15" M2 Chip,Laptops,1,1199,2026-03-02,4.9,1199,Delivered,UPI
+ORD-2026-1001,u-cust-1,Kasi,Python for Data Analysis (3rd Edition),Books,1,49,2026-03-02,4.9,49,Delivered,UPI
+ORD-2026-1002,u-cust-2,Priya Patel,Sony WH-1000XM5 Wireless Headphones,Electronics,1,349,2026-03-14,4.8,349,Delivered,Card
+ORD-2026-1003,u-cust-3,Arjun Verma,Logitech MX Master 3S Wireless Mouse,Electronics,1,99,2026-03-25,4.9,99,Delivered,Cash on Delivery
+ORD-2026-1003,u-cust-3,Arjun Verma,Keychron K2 Mechanical RGB Keyboard,Accessories,1,89,2026-03-25,4.7,89,Delivered,Cash on Delivery
+ORD-2026-1004,u-cust-4,Ananya Sen,Samsung Galaxy S24 Ultra 5G,Mobile Phones,1,1299,2026-04-05,4.8,1299,Delivered,UPI
+ORD-2026-1004,u-cust-4,Ananya Sen,Python for Data Analysis (3rd Edition),Books,1,49,2026-04-05,4.9,49,Delivered,UPI
+ORD-2026-1005,u-cust-5,Rohit Kumar,Apple Watch Series 9 GPS 45mm,Smart Devices,1,429,2026-04-18,4.8,429,Delivered,Card
+ORD-2026-1006,u-cust-6,Neha Gupta,Hands-On Machine Learning with Scikit-Learn & TensorFlow,Books,1,59,2026-05-02,4.9,59,Delivered,UPI
+ORD-2026-1006,u-cust-6,Neha Gupta,Designing Data-Intensive Applications,Books,1,52,2026-05-02,5.0,52,Delivered,UPI
+ORD-2026-1006,u-cust-6,Neha Gupta,Python for Data Analysis (3rd Edition),Books,1,49,2026-05-02,4.9,49,Delivered,UPI
+ORD-2026-1007,u-cust-7,Vikram Aditya,Lenovo ThinkPad X1 Carbon Gen 11,Laptops,1,1399,2026-05-19,4.8,1399,Delivered,Card
+ORD-2026-1007,u-cust-7,Vikram Aditya,TP-Link Kasa Smart Wi-Fi Plug Mini (4-Pack),Smart Devices,1,39,2026-05-19,4.7,39,Delivered,Card
+ORD-2026-1008,u-cust-8,Kavya Nair,Apple AirPods Pro 2nd Gen USB-C,Electronics,1,249,2026-06-03,4.7,249,Delivered,Cash on Delivery
+ORD-2026-1009,u-cust-1,Kasi,Anker 737 GaN 120W Fast Charger,Accessories,1,69,2026-06-15,4.8,69,Delivered,UPI
+ORD-2026-1009,u-cust-1,Kasi,Ergonomic Aluminum Laptop Stand,Accessories,1,45,2026-06-15,4.7,45,Delivered,UPI
+ORD-2026-1009,u-cust-1,Kasi,Clean Code: A Handbook of Agile Software Craftsmanship,Books,1,42,2026-06-15,4.6,42,Delivered,UPI
+ORD-2026-1010,u-cust-2,Priya Patel,Apple iPhone 15 Pro Max,Mobile Phones,1,1199,2026-06-28,4.9,1199,Delivered,UPI
+ORD-2026-1011,u-cust-3,Arjun Verma,Google Pixel 8 Pro AI Smartphone,Mobile Phones,1,999,2026-07-04,4.6,999,Delivered,Card
+ORD-2026-1012,u-cust-4,Ananya Sen,Bose SoundLink Revolve+ II Bluetooth Speaker,Electronics,1,299,2026-07-16,4.6,299,Delivered,Card
+ORD-2026-1013,u-cust-5,Rohit Kumar,SanDisk Extreme 1TB Portable NVMe SSD,Accessories,1,119,2026-07-29,4.8,119,Delivered,Cash on Delivery
+ORD-2026-1014,u-cust-6,Neha Gupta,HP Envy 15 x360 2-in-1 Touch Laptop,Laptops,1,899,2026-08-05,4.4,899,Delivered,UPI
+ORD-2026-1015,u-cust-7,Vikram Aditya,Amazon Echo Show 8 (3rd Gen) Smart Display,Smart Devices,1,149,2026-08-14,4.6,149,Delivered,Card
+ORD-2026-1016,u-cust-8,Kavya Nair,Fitbit Charge 6 Fitness Tracker,Smart Devices,1,159,2026-08-27,4.5,159,Delivered,UPI
+ORD-2026-1017,u-cust-1,Kasi,OnePlus 12 5G Hasselblad Edition,Mobile Phones,1,799,2026-09-02,4.5,799,Delivered,Card
+ORD-2026-1018,u-cust-2,Priya Patel,Dell XPS 13 Plus Ultrabook,Laptops,1,1299,2026-09-10,4.5,1299,Delivered,Cash on Delivery
+ORD-2026-1019,u-cust-3,Arjun Verma,Sony WH-1000XM5 Wireless Headphones,Electronics,1,349,2026-09-18,4.8,349,Shipped,UPI
+ORD-2026-1020,u-cust-4,Ananya Sen,Apple AirPods Pro 2nd Gen USB-C,Electronics,1,249,2026-09-22,4.7,249,Shipped,Card
+ORD-2026-1021,u-cust-5,Rohit Kumar,Logitech MX Master 3S Wireless Mouse,Electronics,1,99,2026-09-27,4.9,99,Shipped,UPI
+ORD-2026-1021,u-cust-5,Rohit Kumar,Keychron K2 Mechanical RGB Keyboard,Accessories,1,89,2026-09-27,4.7,89,Shipped,UPI
+ORD-2026-1022,u-cust-6,Neha Gupta,Amazon Echo Show 8 (3rd Gen) Smart Display,Smart Devices,1,149,2026-09-29,4.6,149,Confirmed,Card
+ORD-2026-1023,u-cust-7,Vikram Aditya,Apple MacBook Air 15" M2 Chip,Laptops,1,1199,2026-10-01,4.9,1199,Confirmed,UPI
+ORD-2026-1024,u-cust-8,Kavya Nair,Google Pixel 8 Pro AI Smartphone,Mobile Phones,1,999,2026-10-03,4.6,999,Pending,Cash on Delivery
+ORD-2026-1025,u-cust-1,Kasi,Bose SoundLink Revolve+ II Bluetooth Speaker,Electronics,1,299,2026-10-04,4.6,299,Pending,UPI
+ORD-2026-1026,u-cust-2,Priya Patel,SanDisk Extreme 1TB Portable NVMe SSD,Accessories,1,119,2026-10-05,4.8,119,Pending,UPI
+ORD-2026-1027,u-cust-3,Arjun Verma,Apple Watch Series 9 GPS 45mm,Smart Devices,1,429,2026-10-05,4.8,429,Cancelled,Card
+ORD-2026-1028,u-cust-4,Ananya Sen,Fitbit Charge 6 Fitness Tracker,Smart Devices,1,159,2026-10-06,4.5,159,Confirmed,UPI

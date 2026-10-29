@@ -1,0 +1,6 @@
+{
+  "name": "DataCart – E-Commerce Sales & Data Analytics Platform",
+  "description": "College Data Science Programming e-commerce platform with sales analytics, Chart.js visualizations, Pandas/NumPy analysis, and content-based product recommendations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

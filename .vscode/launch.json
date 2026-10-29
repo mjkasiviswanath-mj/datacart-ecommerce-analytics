@@ -1,0 +1,55 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "🚀 1. Run React Frontend (Vite)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev"
+    },
+    {
+      "name": "🐍 2. Run Flask Backend (DataCart)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/DataCart/app.py",
+      "cwd": "${workspaceFolder}/DataCart",
+      "console": "integratedTerminal",
+      "env": {
+        "FLASK_ENV": "development",
+        "FLASK_DEBUG": "1"
+      }
+    },
+    {
+      "name": "🗄️ 3. Initialize SQLite Database (init_db.py)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/DataCart/init_db.py",
+      "cwd": "${workspaceFolder}/DataCart",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "🌐 4. Open React Frontend in Browser (Port 3000)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "🌐 5. Open Flask Backend in Browser (Port 5000)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://127.0.0.1:5000",
+      "webRoot": "${workspaceFolder}/DataCart"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "⚡ Run Full Stack (React + Flask)",
+      "configurations": [
+        "🚀 1. Run React Frontend (Vite)",
+        "🐍 2. Run Flask Backend (DataCart)"
+      ],
+      "stopAll": true
+    }
+  ]
+}

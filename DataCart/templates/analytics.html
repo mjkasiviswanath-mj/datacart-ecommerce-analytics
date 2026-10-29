@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataCart - Data Science Analytics Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+    <!-- Navbar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="/" class="text-xl font-bold text-indigo-600 flex items-center gap-2">
+                <span>📊 DataCart Analytics</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="/" class="text-slate-600 hover:text-slate-900">Home</a>
+                <a href="/products" class="text-slate-600 hover:text-slate-900">Products</a>
+                <a href="/cart" class="text-slate-600 hover:text-slate-900">Cart</a>
+                <a href="/analytics" class="text-indigo-600 font-semibold">Analytics</a>
+                <a href="/admin" class="text-slate-600 hover:text-slate-900">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+        <div>
+            <h1 class="text-3xl font-extrabold text-slate-900">Sales & Data Analytics Dashboard</h1>
+            <p class="text-sm text-slate-500 mt-1">
+                Data Science Programming: Python Pandas & NumPy statistics visualized via Chart.js
+            </p>
+        </div>
+
+        <!-- Metric KPI Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="kpi-cards">
+            <div class="bg-white p-5 rounded-xl border border-slate-200">
+                <span class="text-xs text-slate-500 font-semibold uppercase">Total Revenue</span>
+                <div class="text-2xl font-bold text-slate-900 mt-1" id="kpi-revenue">Loading...</div>
+            </div>
+            <div class="bg-white p-5 rounded-xl border border-slate-200">
+                <span class="text-xs text-slate-500 font-semibold uppercase">Average Order Value</span>
+                <div class="text-2xl font-bold text-slate-900 mt-1" id="kpi-aov">Loading...</div>
+            </div>
+            <div class="bg-white p-5 rounded-xl border border-slate-200">
+                <span class="text-xs text-slate-500 font-semibold uppercase">Total Orders</span>
+                <div class="text-2xl font-bold text-slate-900 mt-1" id="kpi-orders">Loading...</div>
+            </div>
+            <div class="bg-white p-5 rounded-xl border border-slate-200">
+                <span class="text-xs text-slate-500 font-semibold uppercase">Max Order Value</span>
+                <div class="text-2xl font-bold text-slate-900 mt-1" id="kpi-max">Loading...</div>
+            </div>
+        </div>
+
+        <!-- 6 Chart.js Visualizations (Requirements 10 & 11) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 1. Monthly Sales -->
+            <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-2">
+                <h3 class="font-bold text-sm">1. Monthly Sales (Line Chart)</h3>
+                <div class="h-56"><canvas id="chart-monthly"></canvas></div>
+            </div>
+            <!-- 2. Category-wise Sales -->
+            <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-2">
+                <h3 class="font-bold text-sm">2. Category-wise Sales (Bar Chart)</h3>
+                <div class="h-56"><canvas id="chart-category"></canvas></div>
+            </div>
+            <!-- 3. Sales Distribution -->
+            <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-2">
+                <h3 class="font-bold text-sm">3. Sales Distribution (Doughnut Chart)</h3>
+                <div class="h-56"><canvas id="chart-distribution"></canvas></div>
+            </div>
+            <!-- 4. Top 10 Products -->
+            <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-2">
+                <h3 class="font-bold text-sm">4. Top Products (Bar Chart)</h3>
+                <div class="h-56"><canvas id="chart-top-products"></canvas></div>
+            </div>
+            <!-- 5. Order Status -->
+            <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-2">
+                <h3 class="font-bold text-sm">5. Order Status Breakdown</h3>
+                <div class="h-56"><canvas id="chart-status"></canvas></div>
+            </div>
+            <!-- 6. Customer Spending -->
+            <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-2">
+                <h3 class="font-bold text-sm">6. Customer Spending (Bar Chart)</h3>
+                <div class="h-56"><canvas id="chart-customer"></canvas></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Fetch real aggregated data from Flask /api/sales endpoint
+        fetch('/api/sales')
+            .then(res => res.json())
+            .then(data => {
+                const metrics = data.metrics;
+                document.getElementById('kpi-revenue').innerText = '$' + metrics.total_revenue.toLocaleString();
+                document.getElementById('kpi-aov').innerText = '$' + metrics.average_order_value;
+                document.getElementById('kpi-orders').innerText = metrics.total_orders;
+                document.getElementById('kpi-max').innerText = '$' + metrics.max_sales;
+
+                // 1. Monthly Line Chart
+                new Chart(document.getElementById('chart-monthly'), {
+                    type: 'line',
+                    data: {
+                        labels: data.monthly_sales.map(m => m.Month),
+                        datasets: [{ label: 'Sales ($)', data: data.monthly_sales.map(m => m.sales), borderColor: '#4f46e5', tension: 0.3 }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
+
+                // 2. Category Bar Chart
+                new Chart(document.getElementById('chart-category'), {
+                    type: 'bar',
+                    data: {
+                        labels: data.category_sales.map(c => c.Category),
+                        datasets: [{ label: 'Total Sales ($)', data: data.category_sales.map(c => c.total_sales), backgroundColor: '#3b82f6' }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
+
+                // 3. Distribution Doughnut Chart
+                new Chart(document.getElementById('chart-distribution'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: data.category_sales.map(c => c.Category),
+                        datasets: [{ data: data.category_sales.map(c => c.total_sales) }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
+
+                // 4. Top Products Horizontal Bar Chart
+                new Chart(document.getElementById('chart-top-products'), {
+                    type: 'bar',
+                    data: {
+                        labels: data.top_products.slice(0, 5).map(p => p.Product.substring(0, 15) + '...'),
+                        datasets: [{ label: 'Revenue ($)', data: data.top_products.slice(0, 5).map(p => p.total_revenue), backgroundColor: '#6366f1' }]
+                    },
+                    options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false }
+                });
+
+                // 5. Order Status Doughnut Chart
+                new Chart(document.getElementById('chart-status'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Delivered', 'Shipped', 'Confirmed', 'Pending', 'Cancelled'],
+                        datasets: [{ data: [18, 4, 3, 3, 1], backgroundColor: ['#10b981', '#6366f1', '#3b82f6', '#f59e0b', '#ef4444'] }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
+
+                // 6. Customer Spending Bar Chart
+                new Chart(document.getElementById('chart-customer'), {
+                    type: 'bar',
+                    data: {
+                        labels: data.customer_spending.slice(0, 5).map(c => c.Customer_Name.split(' ')[0]),
+                        datasets: [{ label: 'Total Spent ($)', data: data.customer_spending.slice(0, 5).map(c => c.total_spent), backgroundColor: '#0ea5e9' }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
+            })
+            .catch(err => console.error("Error loading sales analytics:", err));
+    </script>
+</body>
+</html>
